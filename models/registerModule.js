@@ -10,7 +10,7 @@ exports.signup = async (req,res,next) => {
         //   username: joi.string().alphanum().min(3).max(25).trim(true).required(),
           Username: joi.string().min(2).max(25).trim(true).required(),
           email: joi.string().email().trim(true).required(),
-          password: joi.string().min(3).trim(true).required(),
+          password: joi.string().min(2).trim(true).required(),
           confirmPassword: joi.string().min(8).trim(true),
         //   role: joi.string().trim(true).required(),
         //   mobileNumber: joi
