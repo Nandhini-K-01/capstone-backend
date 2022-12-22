@@ -32,3 +32,15 @@ module.exports.createQuestion = async (req,res) => {
         res.status(500).send(err);
     }
 }
+
+module.exports.updateById = async (req,res) => {
+    try{
+        const insertAnswer = await mongo.selectedDb.collection("questions").findOneAndUpdate(
+            {_id: ObjectId(req.params.id)}, {$push:{answerDetails: req.body.answerDetails}}, {returnDocument:"after"});
+            res.send(insertAnswer);
+    }
+    catch(err){
+    console.log(err);
+    res.status(500).send(err);
+    }
+}
